@@ -1,0 +1,27 @@
+{
+  "name": "mini-utils",
+  "version": "1.0.0",
+  "description": "mini 系列 js 工具库 🍤🐷💘 a javascript utils library includes my  frequently used functions",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangxu2424/mini-utils.git"
+  },
+  "keywords": [
+    "ts",
+    "utils"
+  ],
+  "author": "tangxu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tangxu2424/mini-utils/issues"
+  },
+  "homepage": "https://github.com/tangxu2424/mini-utils#readme",
+  "devDependencies": {
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  }
+}

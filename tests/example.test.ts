@@ -1,11 +1,11 @@
 import { verify } from '../src';
 
 describe('utils-verify', () => {
-    test('isArrayLike(): true', () => {
+    test('isArrayLike([]): true', () => {
         expect(verify.isArrayLike([])).toBe(true);
     });
 
-    test('isArrayLike(): false', () => {
+    test('isArrayLike({}): false', () => {
         expect(verify.isArrayLike({})).toBe(false);
     });
 });

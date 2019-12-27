@@ -5,7 +5,6 @@
 
 ## Local
 .idea
-.vscode
 node_modules
 
 ## Built-files

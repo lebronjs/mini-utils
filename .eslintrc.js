@@ -5,7 +5,7 @@ module.exports = {
         node: true,
         jest: true
     },
-    extends: ['standard', 'plugin:@typescript-eslint/recommended', 'prettier'],
+    extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
     plugins: ['@typescript-eslint', 'prettier'],
     globals: {
         Atomics: 'readonly',

@@ -4,7 +4,22 @@
   "description": "mini 系列 js 工具库 🍤🐷💘 a javascript utils library includes my  frequently used functions",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "jest --verbose"
+  },
+  "jest": {
+    "rootDir": "tests",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "repository": {
     "type": "git",
@@ -21,7 +36,23 @@
   },
   "homepage": "https://github.com/tangxu2424/mini-utils#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.1",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
-  }
+  },
+  "dependencies": {}
 }

@@ -4,9 +4,10 @@
     "description": "mini 系列 js 工具库 🍤🐷💘 a javascript utils library includes my  frequently used functions",
     "main": "dist/index.js",
     "scripts": {
-        "build": "npm run lint && npm run test && tsc",
+        "build": "npm run lint && npm run test && tsc && echo \"\\033[31m--------\";date \"+%H:%M:%S\n--------\" && echo \"\\033[00m\" && echo \"\\033[32mtypescript compiled successfully !!!\" ",
         "test": "jest --verbose",
-        "lint": "eslint 'src/**/*.{ts,js,tsx,jsx}'"
+        "lint": "eslint 'src/**/*.{ts,js,tsx,jsx}'",
+        "pub": "git push && git push --tags && npm publish"
     },
     "jest": {
         "rootDir": "tests",

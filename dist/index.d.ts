@@ -1,2 +1,3 @@
 import verify from './utils/verify';
-export { verify };
+import test from './utils/test';
+export { verify, test };

@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "mini 系列 js 工具库 🍤🐷💘 a javascript utils library includes my  frequently used functions",
     "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
         "build": "npm run lint && npm run test && tsc && echo \"\\033[31m--------\";date \"+%H:%M:%S\n--------\" && echo \"\\033[00m\" && echo \"\\033[32mtypescript compiled successfully !!!\" ",
         "test": "jest --verbose",

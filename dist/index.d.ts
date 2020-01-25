@@ -1,3 +1,4 @@
 import verify from './utils/verify';
 import test from './utils/test';
-export { verify, test };
+import random from './utils/random';
+export { verify, test, random };

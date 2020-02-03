@@ -15,7 +15,7 @@ export default {
      * @param {Array} originArr 需要随机洗牌的数组
      * @returns {Array} 返回随机洗牌后的新数组
      */
-    shuffle: (originArr: []): Array<number | string> => {
+    shuffle: (originArr: Array<number | string>): Array<number | string> => {
         //let arr = [...originArr];
         const arr = originArr.slice(0);
         for (let index = arr.length - 1; index >= 0; index--) {

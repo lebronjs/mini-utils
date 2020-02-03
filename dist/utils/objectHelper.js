@@ -32,6 +32,47 @@ var ObjectHelper = (function () {
             return target;
         }
     };
+    ObjectHelper.debounce = function (func, delay, immediate) {
+        var timeoutId;
+        var isFirst = true;
+        return function () {
+            var _this = this;
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            console.log(isFirst);
+            if (immediate && isFirst) {
+                func.apply(this, args);
+                isFirst = false;
+            }
+            else {
+                timeoutId = setTimeout(function () {
+                    func.apply(_this, args);
+                    timeoutId = void 0;
+                }, delay);
+            }
+        };
+    };
+    ObjectHelper.throttle = function (func, delay) {
+        var timeoutId;
+        return function () {
+            var _this = this;
+            var args = [];
+            for (var _i = 0; _i < arguments.length; _i++) {
+                args[_i] = arguments[_i];
+            }
+            if (!timeoutId) {
+                timeoutId = setTimeout(function () {
+                    func.apply(_this, args);
+                    timeoutId = void 0;
+                }, delay);
+            }
+        };
+    };
     return ObjectHelper;
 }());
 exports.default = ObjectHelper;

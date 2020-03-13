@@ -11,3 +11,5 @@ var random_1 = __importDefault(require("./utils/random"));
 exports.random = random_1.default;
 var objectHelper_1 = __importDefault(require("./utils/objectHelper"));
 exports.objectHelper = objectHelper_1.default;
+var image_1 = __importDefault(require("./utils/image"));
+exports.image = image_1.default;

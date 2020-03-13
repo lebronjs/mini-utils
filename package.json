@@ -5,7 +5,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "build": "npm run lint && npm run test && tsc && echo \"\\033[31m--------\";date \"+%H:%M:%S\n--------\" && echo \"\\033[00m\"",
+        "build": "npm run lint && npm run test && tsc && echo \"\\033[32m--------\";date \"+%H:%M:%S\n--------\" && echo \"\\033[00m\"",
         "test": "jest --verbose",
         "lint": "eslint 'src/**/*.{ts,js,tsx,jsx}'",
         "pub": "git push && git push --tags && npm publish"
@@ -62,5 +62,7 @@
         "ts-node": "^8.5.4",
         "typescript": "^3.7.4"
     },
-    "dependencies": {}
+    "dependencies": {
+        "tinify": "^1.6.0-beta.2"
+    }
 }

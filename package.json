@@ -32,7 +32,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tangxu2424/mini-utils.git"
+        "url": "git+https://github.com/lebronjs/mini-utils.git"
     },
     "keywords": [
         "ts",
@@ -41,9 +41,9 @@
     "author": "tangxu",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/tangxu2424/mini-utils/issues"
+        "url": "https://github.com/lebronjs/mini-utils/issues"
     },
-    "homepage": "https://github.com/tangxu2424/mini-utils#readme",
+    "homepage": "https://github.com/lebronjs/mini-utils#readme",
     "devDependencies": {
         "@types/jest": "^24.0.25",
         "@types/node": "^13.1.1",

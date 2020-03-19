@@ -54,3 +54,9 @@ image.compress("./images", "./build/images");
 ### `image`
 
 -   `compress`
+
+### `debounce`
+
+### `throttle`
+
+### `timeDifference`

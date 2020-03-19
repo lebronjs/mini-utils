@@ -1,13 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var ObjectHelper = (function () {
+var ObjectHelper = /** @class */ (function () {
     function ObjectHelper() {
     }
+    /**
+     * Deep copy function for TypeScript.
+     * @param T Generic type of target/copied value.
+     * @param target Target value to be copied.
+     */
     ObjectHelper.clone = function (target, weakmap) {
         if (weakmap === void 0) { weakmap = new WeakMap(); }
         if (typeof target === 'object') {
             var cloneTarget_1;
             var keys = Object.keys(target);
+            // circular reference
+            // if (weakmap.get(target)) {
+            //     return target;
+            // }
             if (target === null) {
                 return target;
             }
@@ -21,7 +30,11 @@ var ObjectHelper = (function () {
                 });
                 return cloneTarget_1;
             }
+            // if (typeof (target as Target)[Symbol.iterator] === 'function') {
+            // }
+            /**对象或数组*/
             cloneTarget_1 = Array.isArray(target) ? [] : {};
+            // weakmap.set(target, cloneTarget);
             for (var _i = 0, keys_1 = keys; _i < keys_1.length; _i++) {
                 var key = keys_1[_i];
                 cloneTarget_1[key] = ObjectHelper.clone(target[key]);
@@ -31,47 +44,6 @@ var ObjectHelper = (function () {
         else {
             return target;
         }
-    };
-    ObjectHelper.debounce = function (func, delay, immediate) {
-        var timeoutId;
-        var isFirst = true;
-        return function () {
-            var _this = this;
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i] = arguments[_i];
-            }
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
-            console.log(isFirst);
-            if (immediate && isFirst) {
-                func.apply(this, args);
-                isFirst = false;
-            }
-            else {
-                timeoutId = setTimeout(function () {
-                    func.apply(_this, args);
-                    timeoutId = void 0;
-                }, delay);
-            }
-        };
-    };
-    ObjectHelper.throttle = function (func, delay) {
-        var timeoutId;
-        return function () {
-            var _this = this;
-            var args = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                args[_i] = arguments[_i];
-            }
-            if (!timeoutId) {
-                timeoutId = setTimeout(function () {
-                    func.apply(_this, args);
-                    timeoutId = void 0;
-                }, delay);
-            }
-        };
     };
     return ObjectHelper;
 }());

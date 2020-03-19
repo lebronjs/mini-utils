@@ -1,4 +1,4 @@
 {
     "editor.formatOnSave": true,
-    "typescript.validate.enable": false
+    "typescript.validate.enable": true
 }

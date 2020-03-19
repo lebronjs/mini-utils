@@ -44,46 +44,4 @@ export default class ObjectHelper {
             return target;
         }
     }
-
-    /**
-     * debounce function
-     * @param {Function} func 需要防抖的函数
-     */
-    public static debounce(func: Function, delay: number, immediate?: boolean): Function {
-        let timeoutId;
-        let isFirst = true;
-
-        return function(this: any, ...args: any[]): void {
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
-            console.log(isFirst);
-            if (immediate && isFirst) {
-                func.apply(this, args);
-                isFirst = false;
-            } else {
-                timeoutId = setTimeout(() => {
-                    func.apply(this, args);
-                    timeoutId = void 0;
-                }, delay);
-            }
-        };
-    }
-
-    /**
-     * throttle function
-     * @param {Function} func 需要节流的函数
-     */
-    public static throttle(func: Function, delay: number): Function {
-        let timeoutId;
-
-        return function(this: any, ...args: any[]): void {
-            if (!timeoutId) {
-                timeoutId = setTimeout(() => {
-                    func.apply(this, args);
-                    timeoutId = void 0;
-                }, delay);
-            }
-        };
-    }
 }

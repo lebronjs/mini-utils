@@ -60,3 +60,5 @@ image.compress("./images", "./build/images");
 ### `throttle`
 
 ### `timeDifference`
+
+### `getQueryParam`

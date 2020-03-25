@@ -5,6 +5,23 @@ import objectHelper from './utils/objectHelper';
 import image from './utils/image';
 
 /**
+ * JS获取url参数
+ * @param name 查询location的参数名
+ * @returns 参数值都是字符串.
+ */
+function getQueryParam(name: string): string {
+    const query = window.location.search.substring(1);
+    const vars = query.split('&');
+    for (let i = 0; i < vars.length; i++) {
+        const pair = vars[i].split('=');
+        if (pair[0] === name) {
+            return pair[1];
+        }
+    }
+    return '';
+}
+
+/**
  * 计算倒计时剩余时间⏰
  * @param startTimestamp 开始时间戳
  * @param endTimestamp 结束时间戳
@@ -68,4 +85,4 @@ function throttle(func: Function, delay: number): () => any {
     };
 }
 
-export { verify, test, random, objectHelper, image, timeDifference, debounce, throttle };
+export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };

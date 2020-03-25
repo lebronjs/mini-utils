@@ -14,6 +14,23 @@ exports.objectHelper = objectHelper_1.default;
 var image_1 = __importDefault(require("./utils/image"));
 exports.image = image_1.default;
 /**
+ * JS获取url参数
+ * @param name 查询location的参数名
+ * @returns 参数值都是字符串.
+ */
+function getQueryParam(name) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (pair[0] === name) {
+            return pair[1];
+        }
+    }
+    return '';
+}
+exports.getQueryParam = getQueryParam;
+/**
  * 计算倒计时剩余时间⏰
  * @param startTimestamp 开始时间戳
  * @param endTimestamp 结束时间戳

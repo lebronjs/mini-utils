@@ -4,6 +4,12 @@ import random from './utils/random';
 import objectHelper from './utils/objectHelper';
 import image from './utils/image';
 /**
+ * JS获取url参数
+ * @param name 查询location的参数名
+ * @returns 参数值都是字符串.
+ */
+declare function getQueryParam(name: string): string;
+/**
  * 计算倒计时剩余时间⏰
  * @param startTimestamp 开始时间戳
  * @param endTimestamp 结束时间戳
@@ -30,4 +36,4 @@ declare function debounce(func: () => {}, delay: number, immediate?: boolean): (
  * @returns Returns the new throttle function.
  */
 declare function throttle(func: Function, delay: number): () => any;
-export { verify, test, random, objectHelper, image, timeDifference, debounce, throttle };
+export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };

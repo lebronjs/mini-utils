@@ -39,11 +39,15 @@ exports.getQueryParam = getQueryParam;
 function timeDifference(startTimestamp, endTimestamp) {
     var distanceTimestamp = endTimestamp - startTimestamp;
     // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distanceTimestamp / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distanceTimestamp % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distanceTimestamp % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distanceTimestamp % (1000 * 60)) / 1000);
+    // const days = Math.floor(distanceTimestamp / (1000 * 60 * 60 * 24));
+    // const hours = Math.floor((distanceTimestamp % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    // const minutes = Math.floor((distanceTimestamp % (1000 * 60 * 60)) / (1000 * 60));
+    // const seconds = Math.floor((distanceTimestamp % (1000 * 60)) / 1000);
     //console.log(days, startTimestamp, endTimestamp);
+    var seconds = Math.floor((distanceTimestamp / 1000) % 60);
+    var minutes = Math.floor((distanceTimestamp / 1000 / 60) % 60);
+    var hours = Math.floor((distanceTimestamp / 1000 / 60 / 60) % 24);
+    var days = Math.floor(distanceTimestamp / 1000 / 60 / 60 / 24);
     return distanceTimestamp < 0 ? { days: 0, hours: 0, minutes: 0, seconds: 0 } : { days: days, hours: hours, minutes: minutes, seconds: seconds };
 }
 exports.timeDifference = timeDifference;

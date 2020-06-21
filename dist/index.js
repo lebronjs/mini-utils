@@ -3,6 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+/* eslint-disable @typescript-eslint/no-this-alias */
+/* eslint-disable prefer-rest-params */
 var verify_1 = __importDefault(require("./utils/verify"));
 exports.verify = verify_1.default;
 var test_1 = __importDefault(require("./utils/test"));
@@ -60,50 +63,54 @@ exports.timeDifference = timeDifference;
  */
 function debounce(func, delay, immediate) {
     var timeoutId;
-    var isFirst = true;
-    return function () {
-        var _this = this;
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-        console.log(isFirst);
-        if (immediate && isFirst) {
-            func.apply(this, args);
+    var isFirst = immediate;
+    var debounced = function () {
+        var context = this;
+        var args = arguments;
+        //关键就是这个每次都清除定时器
+        timeoutId && clearTimeout(timeoutId);
+        if (!timeoutId && isFirst) {
+            // @ts-ignore
+            func.apply(context, args);
             isFirst = false;
         }
         else {
             timeoutId = setTimeout(function () {
-                func.apply(_this, args);
-                timeoutId = void 0;
+                // @ts-ignore
+                func.apply(context, args);
             }, delay);
         }
     };
+    debounced.cancel = function () {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        isFirst = immediate;
+    };
+    return debounced;
 }
 exports.debounce = debounce;
 /**
  * throttle function
  * @param func 需要节流的函数
- * @param delay 延迟的毫秒数
+ * @param interval 函数执行的固定时间间隔
  * @returns Returns the new throttle function.
  */
-function throttle(func, delay) {
+function throttle(func, interval) {
     var timeoutId;
-    return function () {
-        var _this = this;
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
+    var throttled = function () {
+        var context = this;
+        var args = arguments;
         if (!timeoutId) {
             timeoutId = setTimeout(function () {
-                func.apply(_this, args);
-                timeoutId = void 0;
-            }, delay);
+                timeoutId = null;
+                func.apply(context, args);
+            }, interval);
         }
     };
+    throttled.cancel = function () {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+    };
+    return throttled;
 }
 exports.throttle = throttle;

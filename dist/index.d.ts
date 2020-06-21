@@ -32,8 +32,8 @@ declare function debounce(func: () => {}, delay: number, immediate?: boolean): (
 /**
  * throttle function
  * @param func 需要节流的函数
- * @param delay 延迟的毫秒数
+ * @param interval 函数执行的固定时间间隔
  * @returns Returns the new throttle function.
  */
-declare function throttle(func: Function, delay: number): () => any;
+declare function throttle(func: Function, interval: number): () => any;
 export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };

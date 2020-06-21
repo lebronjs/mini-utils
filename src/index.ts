@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+/* eslint-disable @typescript-eslint/no-this-alias */
+/* eslint-disable prefer-rest-params */
 import verify from './utils/verify';
 import test from './utils/test';
 import random from './utils/random';
@@ -50,43 +53,58 @@ function timeDifference(startTimestamp: number, endTimestamp: number): { days: n
  * @returns Returns the new debounced function.
  */
 function debounce(func: () => {}, delay: number, immediate?: boolean): () => any {
-    let timeoutId: NodeJS.Timeout | undefined;
-    let isFirst = true;
-
-    return function(this, ...args): void {
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-        console.log(isFirst);
-        if (immediate && isFirst) {
-            func.apply(this, args);
+    let timeoutId: NodeJS.Timeout | null;
+    let isFirst = immediate;
+    const debounced = function(this: any) {
+        const context = this;
+        const args = arguments;
+        //关键就是这个每次都清除定时器
+        timeoutId && clearTimeout(timeoutId);
+        if (!timeoutId && isFirst) {
+            // @ts-ignore
+            func.apply(context, args);
             isFirst = false;
         } else {
-            timeoutId = setTimeout(() => {
-                func.apply(this, args);
-                timeoutId = void 0;
+            timeoutId = setTimeout(function() {
+                // @ts-ignore
+                func.apply(context, args);
             }, delay);
         }
     };
+
+    debounced.cancel = function() {
+        clearTimeout(timeoutId as NodeJS.Timeout);
+        timeoutId = null;
+        isFirst = immediate;
+    };
+    return debounced;
 }
 
 /**
  * throttle function
  * @param func 需要节流的函数
- * @param delay 延迟的毫秒数
+ * @param interval 函数执行的固定时间间隔
  * @returns Returns the new throttle function.
  */
-function throttle(func: Function, delay: number): () => any {
-    let timeoutId: NodeJS.Timeout | undefined;
+function throttle(func: Function, interval: number): () => any {
+    let timeoutId: NodeJS.Timeout | null;
+    const throttled = function(this: any) {
+        const context = this;
+        const args = arguments;
 
-    return function(this, ...args): void {
         if (!timeoutId) {
-            timeoutId = setTimeout(() => {
-                func.apply(this, args);
-                timeoutId = void 0;
-            }, delay);
+            timeoutId = setTimeout(function() {
+                timeoutId = null;
+                func.apply(context, args);
+            }, interval);
         }
     };
+
+    throttled.cancel = function() {
+        clearTimeout(timeoutId as NodeJS.Timeout);
+        timeoutId = null;
+    };
+    return throttled;
 }
 
 export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };

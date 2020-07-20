@@ -4,7 +4,7 @@ mini 系列 js 工具库 🍤🐷💘
 a javascript utils library includes my frequently used functions
 
 [![NPM version](https://img.shields.io/npm/v/mini-utils-ts.svg?style=flat)](https://npmjs.org/package/mini-utils-ts)
-[![Build Status](https://travis-ci.org/tangxu2424/mini-utils-ts.svg?branch=master)](https://travis-ci.org/tangxu2424/mini-utils-ts)
+[![Build Status](https://travis-ci.org/lebronjs/mini-utils-ts.svg?branch=master)](https://travis-ci.org/lebronjs/mini-utils-ts)
 [![NPM downloads](http://img.shields.io/npm/dm/mini-utils-ts.svg?style=flat)](https://npmjs.org/package/mini-utils-ts)
 
 ---

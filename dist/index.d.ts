@@ -13,7 +13,7 @@ declare function getQueryParam(name: string): string;
  * 计算倒计时剩余时间⏰
  * @param startTimestamp 开始时间戳
  * @param endTimestamp 结束时间戳
- * @returns Returns the new debounced function.
+ * @returns object { days: number; hours: number; minutes: number; seconds: number }
  */
 declare function timeDifference(startTimestamp: number, endTimestamp: number): {
     days: number;

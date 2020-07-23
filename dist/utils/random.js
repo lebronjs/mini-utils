@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable prefer-const */
-exports.default = {
+export default {
     /**
      * 返回指定范围随机整数
      * @param {number} min

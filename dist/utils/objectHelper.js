@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var ObjectHelper = /** @class */ (function () {
     function ObjectHelper() {
     }
@@ -47,4 +45,4 @@ var ObjectHelper = /** @class */ (function () {
     };
     return ObjectHelper;
 }());
-exports.default = ObjectHelper;
+export default ObjectHelper;

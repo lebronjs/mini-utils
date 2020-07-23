@@ -1,11 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/no-var-requires */
 var tinify = require('tinify');
 var fs = require('fs');
 var exec = require('child_process').exec;
 tinify.key = 'vJfXH7MwHynw2ZXFNQ9pPKbBng4FrmrD';
-exports.default = {
+export default {
     /**
      * 压缩jpg、png、jpeg
      * @param {number} srcFolder

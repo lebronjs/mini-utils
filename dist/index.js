@@ -1,21 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 /* eslint-disable @typescript-eslint/no-this-alias */
 /* eslint-disable prefer-rest-params */
-var verify_1 = __importDefault(require("./utils/verify"));
-exports.verify = verify_1.default;
-var test_1 = __importDefault(require("./utils/test"));
-exports.test = test_1.default;
-var random_1 = __importDefault(require("./utils/random"));
-exports.random = random_1.default;
-var objectHelper_1 = __importDefault(require("./utils/objectHelper"));
-exports.objectHelper = objectHelper_1.default;
-var image_1 = __importDefault(require("./utils/image"));
-exports.image = image_1.default;
+import verify from './utils/verify';
+import test from './utils/test';
+import random from './utils/random';
+import objectHelper from './utils/objectHelper';
+import image from './utils/image';
 /**
  * JS获取url参数
  * @param name 查询location的参数名
@@ -32,12 +22,11 @@ function getQueryParam(name) {
     }
     return '';
 }
-exports.getQueryParam = getQueryParam;
 /**
  * 计算倒计时剩余时间⏰
  * @param startTimestamp 开始时间戳
  * @param endTimestamp 结束时间戳
- * @returns Returns the new debounced function.
+ * @returns object { days: number; hours: number; minutes: number; seconds: number }
  */
 function timeDifference(startTimestamp, endTimestamp) {
     var distanceTimestamp = endTimestamp - startTimestamp;
@@ -53,7 +42,6 @@ function timeDifference(startTimestamp, endTimestamp) {
     var days = Math.floor(distanceTimestamp / 1000 / 60 / 60 / 24);
     return distanceTimestamp < 0 ? { days: 0, hours: 0, minutes: 0, seconds: 0 } : { days: days, hours: hours, minutes: minutes, seconds: seconds };
 }
-exports.timeDifference = timeDifference;
 /**
  * debounce function
  * @param func 需要防抖的函数
@@ -88,7 +76,6 @@ function debounce(func, delay, immediate) {
     };
     return debounced;
 }
-exports.debounce = debounce;
 /**
  * throttle function
  * @param func 需要节流的函数
@@ -113,4 +100,4 @@ function throttle(func, interval) {
     };
     return throttled;
 }
-exports.throttle = throttle;
+export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };

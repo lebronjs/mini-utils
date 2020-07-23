@@ -5,7 +5,6 @@ import verify from './utils/verify';
 import test from './utils/test';
 import random from './utils/random';
 import objectHelper from './utils/objectHelper';
-import image from './utils/image';
 
 /**
  * JS获取url参数
@@ -107,4 +106,4 @@ function throttle(func: Function, interval: number): () => any {
     return throttled;
 }
 
-export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };
+export { verify, test, random, objectHelper, timeDifference, getQueryParam, debounce, throttle };

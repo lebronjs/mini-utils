@@ -2,7 +2,6 @@ import verify from './utils/verify';
 import test from './utils/test';
 import random from './utils/random';
 import objectHelper from './utils/objectHelper';
-import image from './utils/image';
 /**
  * JS获取url参数
  * @param name 查询location的参数名
@@ -36,4 +35,4 @@ declare function debounce(func: () => {}, delay: number, immediate?: boolean): (
  * @returns Returns the new throttle function.
  */
 declare function throttle(func: Function, interval: number): () => any;
-export { verify, test, random, objectHelper, image, timeDifference, getQueryParam, debounce, throttle };
+export { verify, test, random, objectHelper, timeDifference, getQueryParam, debounce, throttle };
